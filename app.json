@@ -2,7 +2,7 @@
   "expo": {
     "name": "BharatFlex",
     "slug": "bharatflex",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -19,7 +19,7 @@
     "ios": {
       "supportsTabletMode": false,
       "bundleIdentifier": "com.bharatflex.app",
-      "buildNumber": "5",
+      "buildNumber": "7",
       "infoPlist": {
         "NSCameraUsageDescription": "हम वीडियो रिकॉर्डिंग के लिए कैमरा एक्सेस का उपयोग करते हैं।",
         "NSMicrophoneUsageDescription": "हम ऑडियो रिकॉर्डिंग के लिए माइक्रोफ़ोन एक्सेस का उपयोग करते हैं।",
