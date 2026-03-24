@@ -1,0 +1,52 @@
+# EAS Build ignore file
+# Similar to .gitignore, but for EAS Build
+
+# Dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Testing
+__tests__/
+**/*.test.js
+**/*.test.ts
+**/*.test.tsx
+jest.config.js
+
+# Android build
+android/build/
+android/.gradle/
+android/.bundle/
+.bundle/
+
+# React Native
+**/.bundle/
+*.jks
+*.p8
+*.p12
+*.keystore
+
+# Temporary and cache
+.cache/
+.expo/
+.expo-shared/
+
+# Environment
+*.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Gradle cache
+.gradle/
+build/
