@@ -1,62 +1,31 @@
 name: EAS Build APK
-
 on:
   workflow_dispatch:
-    inputs:
-      profile:
-        description: 'Build profile to use'
-        required: true
-        default: 'preview'
-        type: choice
-        options:
-          - preview
-          - production
-
+  push:
+    branches:
+      - main
 jobs:
   build:
-    name: Build Android APK with EAS
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-      
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      
+          node-version: 18
+      - name: Setup Expo
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: latest
+          eas-cache: true
+          token: ${{ secrets.EXPO_TOKEN }}
       - name: Install dependencies
-        run: npm ci
-      
-      - name: Set up EAS CLI
-        run: npm install -g eas-cli@latest
-      
-      - name: Build Android APK with EAS
-        run: eas build --platform android --profile ${{ inputs.profile }} --wait
-        env:
-          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
-          EAS_NO_VCS: 1
-      
-      - name: Download APK from EAS
-        run: |
-          # EAS Build stores the APK URL in the output
-          # We'll download it if the build completed successfully
-          echo "APK build completed successfully!"
-          echo "Check the EAS dashboard at https://expo.dev/accounts/@<username>/projects/bharatflex"
-      
-      - name: Upload APK as artifact
-        if: success()
-        run: |
-          mkdir -p ./apk-output
-          echo "APK built successfully via EAS Build!"
-          echo "Download link will be available in the EAS Build dashboard"
-          echo "Project ID: dffbd260-642a-4ec5-a8a9-cc49ae692fd4" > ./apk-output/BUILD_INFO.txt
-      
-      - name: Upload build info
-        if: success()
+        run: npm install
+      - name: Build APK
+        run: eas build --platform android --profile preview --local --output ./build-android/app-release.apk
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build-info
-          path: ./apk-output/BUILD_INFO.txt
-          retention-days: 30
+          name: app-release
+          path: ./build-android/app-release.apk
