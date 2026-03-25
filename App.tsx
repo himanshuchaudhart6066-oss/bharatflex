@@ -4,10 +4,7 @@ import {
   View,
   StyleSheet,
   Text,
-  TouchableOpacity,
-  SafeAreaView,
   StatusBar,
-  ActivityIndicator,
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
