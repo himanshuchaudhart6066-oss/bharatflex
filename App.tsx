@@ -76,7 +76,7 @@ const BottomTabNavigator = ({ userProfile }: { userProfile: any }) => {
           tabBarIcon: ({ color }) => <Text style={{ fontSize: 20, color }}>➕</Text>,
         }}
         children={() => (
-          <UploadScreen userProfile={userProfile} />
+          <UploadScreen userProfile={userProfile} onUploadComplete={() => {}} />
         )}
       />
       <Tab.Screen
@@ -175,15 +175,15 @@ const App = () => {
             />
             <Stack.Screen
               name="VideoPlayer"
-              component={VideoPlayerScreen}
               options={{
                 headerShown: false,
               }}
+              children={() => <VideoPlayerScreen route={{ params: {} }} onNavigate={() => {}} />}
             />
             <Stack.Screen
               name="Analytics"
               children={() => (
-                <AnalyticsScreen userProfile={userProfile} />
+                <AnalyticsScreen userProfile={userProfile} onNavigate={() => {}} />
               )}
               options={{
                 headerShown: false,
