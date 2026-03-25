@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "843362277927",
+    "project_id": "bharatflex-acda1",
+    "storage_bucket": "bharatflex-acda1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:843362277927:android:94f0eaf1e089f7ec0e8c02",
+        "android_client_info": {
+          "package_name": "com.bharatflex.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "843362277927-o4v4noskk1dntfbon4unjb788f4nmumt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0_xF27Wtw7k-4eA5NRPcyONqe7hJUtK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "843362277927-o4v4noskk1dntfbon4unjb788f4nmumt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

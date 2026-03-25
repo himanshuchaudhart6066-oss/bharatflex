@@ -12,13 +12,24 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 16
       - name: Install EAS CLI
         run: npm install -g eas-cli
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
+      
+      - name: Check Firebase Configuration
+        run: |
+          if [ -f android/app/google-services.json ]; then
+            echo "✅ google-services.json found"
+          else
+            echo "⚠️ google-services.json missing - build may fail"
+          fi
+      
+      - name: Clean Android Build
+        run: cd android && ./gradlew clean
       - name: Build APK
-        run: npx eas build --platform android --profile preview --local --non-interactive --output ./build-android/app-release.apk
+        run: npx eas build --platform android --profile preview --local --non-interactive --verbose --output ./build-android/app-release.apk
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
       - name: Upload Artifact
