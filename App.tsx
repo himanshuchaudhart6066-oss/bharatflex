@@ -115,7 +115,7 @@ const BottomTabNavigator = ({ userProfile }: { userProfile: any }) => {
 };
 
 // Main App Component
-const BharatFlexApp = () => {
+const App = () => {
   const [showSplash, setShowSplash] = useState(true);
   const [userProfile, setUserProfile] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -205,4 +205,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BharatFlexApp;
+export default App;
